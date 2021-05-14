@@ -24,16 +24,4 @@ class CovidRepositoryImpl @Inject constructor(
              emit(entity)
          }
     }.flowOn(Dispatchers.IO)
-
-//    override suspend fun getCovidCounter(): Result<CovidCounterEntity> =
-//        try {
-//            service.getCovidCounter().body()?.let { response ->
-//                val result = ModelMapper.toEntity(response)
-//                Result.Success(result)
-//            } ?: run {
-//                Result.Error(Exception())
-//            }
-//        } catch (e: Exception) {
-//            Result.Error(e)
-//        }
 }
