@@ -69,6 +69,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hiltViewModelVersion"
     implementation "androidx.activity:activity-ktx:$rootProject.appCompatVersion"
+    implementation "androidx.viewpager2:viewpager2:$rootProject.viewPagerVersion"
 
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"

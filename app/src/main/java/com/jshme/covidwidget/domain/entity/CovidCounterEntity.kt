@@ -2,7 +2,7 @@ package com.jshme.covidwidget.domain.entity
 
 data class CovidCounterEntity(
     val resultCode: String,
-    val totalCase: String,
+    val totalCase: Long,
     val totalRecovered: String,
     val totalDeath: String,
     val nowCase: String,
@@ -11,9 +11,10 @@ data class CovidCounterEntity(
     val city3n: String,
     val city4n: String,
     val city5n: String,
-    val city1p: String,
-    val city2p: String,
-    val city3p: String,
-    val city4p: String,
-    val city5p: String
+    val city1p: Double,
+    val city2p: Double,
+    val city3p: Double,
+    val city4p: Double,
+    val city5p: Double,
+    val totalCaseBefore: Long
 )
