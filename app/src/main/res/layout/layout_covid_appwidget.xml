@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="80dp"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/rounded_background_white_radius24"
+    android:elevation="4dp"
+    android:padding="12dp"
     android:layout_margin="8dp">
 
-    <TextView
-        android:id="@+id/regionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
         android:layout_gravity="center"
-        android:textSize="24dp"
+        android:background="@drawable/rounded_background_blue_radius14"
         android:textAppearance="@style/textView.regular"
         tools:text="서울"/>
+
+    <TextView
+        style="@style/textView.bold"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/icon"
+        android:layout_alignTop="@+id/icon"
+        tools:text="오늘은 유난히 위험한 날이에요." />
+
+    <TextView
+        style="@style/textView.regular"
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/title"
+        android:layout_alignBottom="@+id/icon"
+        android:textColor="@color/gray"
+        android:textSize="14dp"
+        tools:text="어제보다 32명 증가했어요." />
 
 </RelativeLayout>

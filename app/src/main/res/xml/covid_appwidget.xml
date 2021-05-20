@@ -6,7 +6,7 @@
     android:updatePeriodMillis="86400000"
     android:initialLayout="@layout/layout_covid_appwidget"
     android:previewImage="@drawable/abc_vector_test"
-    android:configure="com.jshme.covidwidget.presentation.MainActivity"
+    android:configure="com.jshme.covidwidget.presentation.ui.add.AddWidgetActivity"
     android:resizeMode="horizontal|vertical"
     android:widgetCategory="home_screen">
 </appwidget-provider>
