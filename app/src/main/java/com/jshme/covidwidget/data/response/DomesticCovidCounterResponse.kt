@@ -1,9 +1,8 @@
 package com.jshme.covidwidget.data.response
-
 import com.google.gson.annotations.SerializedName
-import com.jshme.covidwidget.domain.entity.CovidCounterEntity
+import com.jshme.covidwidget.domain.entity.DomesticCovidCounterEntity
 
-data class CovidCounterResponse(
+data class DomesticCovidCounterResponse(
     @SerializedName("resultCode")
     val resultCode: String,
     @SerializedName("TotalCase")
@@ -37,23 +36,28 @@ data class CovidCounterResponse(
     @SerializedName("TotalCaseBefore")
     val totalCaseBefore: String
 ) {
-    fun toEntity(response: CovidCounterResponse): CovidCounterEntity =
-        CovidCounterEntity(
-            resultCode = response.resultCode,
-            totalCase = response.totalCase.toLong(),
-            totalRecovered = response.totalRecovered,
-            totalDeath = response.totalDeath,
-            nowCase = response.nowCase,
-            city1n = response.city1n,
-            city2n = response.city2n,
-            city3n = response.city3n,
-            city4n = response.city4n,
-            city5n = response.city5n,
-            city1p = response.city1p.toDouble(),
-            city2p = response.city2p.toDouble(),
-            city3p = response.city3p.toDouble(),
-            city4p = response.city4p.toDouble(),
-            city5p = response.city5p.toDouble(),
-            totalCaseBefore = response.totalCaseBefore.toLong()
+    fun toEntity(): DomesticCovidCounterEntity =
+        DomesticCovidCounterEntity(
+            resultCode = resultCode,
+            totalCase = totalCase.toLongValue(),
+            totalRecovered = totalRecovered.toLongValue(),
+            totalDeath = totalDeath.toLongValue(),
+            nowCase = nowCase.toLongValue(),
+            city1n = city1n,
+            city2n = city2n,
+            city3n = city3n,
+            city4n = city4n,
+            city5n = city5n,
+            city1p = city1p.toDouble(),
+            city2p = city2p.toDouble(),
+            city3p = city3p.toDouble(),
+            city4p = city4p.toDouble(),
+            city5p = city5p.toDouble(),
+            totalCaseBefore = totalCaseBefore.toLongValue()
         )
+
+    private fun String.toLongValue(): Long {
+        return this.replace(("[^\\d.]").toRegex(), "").toLong()
+    }
+
 }
