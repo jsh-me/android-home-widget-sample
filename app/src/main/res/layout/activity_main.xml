@@ -9,7 +9,41 @@
         android:clipToPadding="false"
         android:paddingBottom="8dp"
         android:background="@color/skyblue"
-        tools:context=".presentation.MainActivity">
+        tools:context=".presentation.ui.main.MainActivity">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/textView.regular"
+            android:id="@+id/regionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/countTextView"
+            tools:text="서울시 확진자" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/textView.regular"
+            android:id="@+id/countTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toBottomOf="@+id/regionTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/firstCardView"
+            tools:text="345명" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addWidgetButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="위젯 추가하기"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/firstCardView" />
 
         <com.jshme.covidwidget.presentation.customview.RoundedShadowCardView
             android:id="@+id/firstCardView"
@@ -21,14 +55,6 @@
 
         <com.jshme.covidwidget.presentation.customview.RoundedShadowCardView
             android:id="@+id/secondCardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/thirdCardView" />
-
-        <com.jshme.covidwidget.presentation.customview.RoundedShadowCardView
-            android:id="@+id/thirdCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"

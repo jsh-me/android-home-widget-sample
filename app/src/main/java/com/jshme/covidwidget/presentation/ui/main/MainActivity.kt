@@ -1,27 +1,19 @@
-package com.jshme.covidwidget.presentation
+package com.jshme.covidwidget.presentation.ui.main
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
-import android.graphics.Outline
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.view.ViewOutlineProvider
 import androidx.activity.viewModels
-import androidx.core.view.ViewCompat
 import androidx.databinding.DataBindingUtil
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager2.widget.MarginPageTransformer
-import androidx.viewpager2.widget.ViewPager2
 import com.jshme.covidwidget.R
 import com.jshme.covidwidget.databinding.ActivityMainBinding
-import com.jshme.covidwidget.domain.entity.CovidCounterEntity
 import com.jshme.covidwidget.presentation.customview.TrendType
+import com.jshme.covidwidget.presentation.ui.add.AddWidgetActivity
 import com.jshme.covidwidget.presentation.widget.AppWidget
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
@@ -35,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         dataBinding.lifecycleOwner = this
+        initViews()
         observeState()
 
         // 위젯 크기에 따라 델리게이트 패턴으로 나누어볼 것
@@ -64,6 +57,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun initViews() {
+        dataBinding.addWidgetButton.setOnClickListener {
+            startActivity(Intent(this, AddWidgetActivity::class.java))
+        }
+    }
+
     private fun observeState() {
         viewModel.mainViewState.observe(this) { state ->
             when (state) {
@@ -77,8 +76,8 @@ class MainActivity : AppCompatActivity() {
 
                 is MainViewState.Success -> {
                     dataBinding.loadingContainer.visibility = View.GONE
-                    setupFirstCardView(state.entity.totalCaseBefore)
-                    setupSecondCardView(state.entity.totalCase)
+                    setupFirstCardView(state.domestic.totalCaseBefore)
+                    setupSecondCardView(state.country.korea.newCase)
                 }
             }
         }
@@ -88,11 +87,13 @@ class MainActivity : AppCompatActivity() {
         when {
             totalCaseBefore > 0 -> {
                 dataBinding.firstCardView.trendType = TrendType.UP
-                dataBinding.firstCardView.description = getString(R.string.confirmed_cardview_increase_person_description, abs(totalCaseBefore))
+                dataBinding.firstCardView.description =
+                    getString(R.string.confirmed_cardview_increase_person_description, abs(totalCaseBefore))
             }
             totalCaseBefore < 0 -> {
                 dataBinding.firstCardView.trendType = TrendType.DOWN
-                dataBinding.firstCardView.description = getString(R.string.confirmed_cardview_decrease_person_description, abs(totalCaseBefore))
+                dataBinding.firstCardView.description =
+                    getString(R.string.confirmed_cardview_decrease_person_description, abs(totalCaseBefore))
             }
             else -> {
                 dataBinding.firstCardView.trendType = TrendType.MIDDLE
@@ -101,19 +102,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupSecondCardView(totalCase: Long) {
-        when {
-            totalCase > 0 -> {
-                dataBinding.secondCardView.icon = R.drawable.ic_happy
-            }
-            totalCase < 0 -> {
-                dataBinding.secondCardView.icon = R.drawable.ic_happy
-            }
-            else -> {
-                dataBinding.secondCardView.icon = R.drawable.ic_happy
-            }
-        }
+    private fun setupSecondCardView(newCase: String) {
+        dataBinding.secondCardView.icon = R.drawable.ic_happy
         dataBinding.secondCardView.descriptionVisibility = View.GONE
-        dataBinding.secondCardView.title = getString(R.string.total_confirmed_parson_title, totalCase)
+        dataBinding.secondCardView.title = getString(R.string.total_confirmed_parson_title, newCase)
     }
 }
