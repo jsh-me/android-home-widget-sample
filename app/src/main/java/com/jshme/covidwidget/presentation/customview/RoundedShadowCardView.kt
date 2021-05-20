@@ -27,6 +27,7 @@ class RoundedShadowCardView @JvmOverloads constructor(
     private val binding = RoundedShadowCardviewBinding.inflate(LayoutInflater.from(context), this)
     private val cardViewRadius = resources.pixelsFrom(20f)
 
+    //타입에 따라 string resource 분리할 것
     var trendType: TrendType? = null
         set(value) {
             field = value
@@ -77,7 +78,8 @@ class RoundedShadowCardView @JvmOverloads constructor(
         binding.cardView.radius = cardViewRadius
         clipToPadding = false
 
-        binding.cardView.outlineSpotShadowColor = resources.getColor(R.color.blue_30p, null)
+        //API 29
+//        binding.cardView.outlineSpotShadowColor = resources.getColor(R.color.blue_30p, null)
         binding.cardView.setCardBackgroundColor(resources.getColor(R.color.white, null))
 
     }
