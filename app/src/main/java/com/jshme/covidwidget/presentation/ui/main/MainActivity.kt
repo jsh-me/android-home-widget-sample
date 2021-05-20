@@ -29,32 +29,6 @@ class MainActivity : AppCompatActivity() {
         dataBinding.lifecycleOwner = this
         initViews()
         observeState()
-
-        // 위젯 크기에 따라 델리게이트 패턴으로 나누어볼 것
-        val appWidgetManager: AppWidgetManager? = getSystemService(AppWidgetManager::class.java)
-        val myProvider = ComponentName(this, AppWidget::class.java)
-        val successCallback: PendingIntent? = if (if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                appWidgetManager!!.isRequestPinAppWidgetSupported
-            } else {
-                TODO("VERSION.SDK_INT < O")
-            }
-        ) {
-            Intent(this, MainActivity::class.java).let { intent ->
-                PendingIntent.getBroadcast(applicationContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-            }
-        } else {
-            null
-        }
-
-
-        dataBinding.firstCardView.setOnClickListener {
-            successCallback?.also { pendingIntent ->
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    appWidgetManager.requestPinAppWidget(myProvider, null, pendingIntent)
-                }
-            }
-        }
-
     }
 
     private fun initViews() {

@@ -39,11 +39,6 @@ class MainViewModel @Inject constructor(
                         countryCovidCounterEntity
                     )
                 }.collect()
-
-//
-//                getDomesticCovidCount().collectLatest { entity ->
-//                        mainViewState.value = MainViewState.Success(entity)
-//                    }
             } catch (e: Exception) {
                 mainViewState.value = MainViewState.Error(e.localizedMessage)
             }
