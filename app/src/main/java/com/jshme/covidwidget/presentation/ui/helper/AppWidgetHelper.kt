@@ -24,36 +24,30 @@ class AppWidgetHelper(
 
     private lateinit var appWidgetManager: AppWidgetManager
 
-    fun onInitialize(title: String? = null, description: String? = null): AppWidgetHelper {
+    fun onInitialize(title: String? = null, description: String? = null): AppWidgetHelper = apply {
         appWidgetManager = AppWidgetManager.getInstance(context)
         this.title = title
         this.description = description
-        return this
     }
 
-    fun setWidgetId(id: Int?): AppWidgetHelper {
+    fun setWidgetId(id: Int?): AppWidgetHelper = apply {
         this.widgetId = id ?: AppWidgetManager.INVALID_APPWIDGET_ID
-        return this
     }
 
-    fun setTitleText(title: String?): AppWidgetHelper {
+    fun setTitleText(title: String?): AppWidgetHelper = apply {
         this.title = title
-        return this
     }
 
-    fun setIcon(@DrawableRes iconRes: Int?): AppWidgetHelper {
+    fun setIcon(@DrawableRes iconRes: Int?): AppWidgetHelper = apply {
         this.iconRes = iconRes
-        return this
     }
 
-    fun setDescriptionText(description: String?): AppWidgetHelper {
+    fun setDescriptionText(description: String?): AppWidgetHelper = apply {
         this.description = description
-        return this
     }
 
-    fun setOnClickListener(pendingIntent: () -> PendingIntent): AppWidgetHelper {
+    fun setOnClickListener(pendingIntent: () -> PendingIntent): AppWidgetHelper = apply {
         this.pendingIntent = pendingIntent
-        return this
     }
 
     fun build() {
