@@ -14,6 +14,7 @@
         android:layout_width="54dp"
         android:layout_height="54dp"
         android:layout_gravity="center"
+        android:padding="16dp"
         android:background="@drawable/rounded_background_blue_radius14"
         android:textAppearance="@style/textView.regular"
         tools:text="서울"/>
@@ -26,8 +27,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginStart="8dp"
         android:layout_toEndOf="@+id/icon"
-        android:layout_alignTop="@+id/icon"
-        tools:text="오늘은 유난히 위험한 날이에요." />
+        android:layout_alignTop="@+id/icon" />
 
     <TextView
         style="@style/textView.regular"
@@ -37,7 +37,6 @@
         android:layout_alignStart="@+id/title"
         android:layout_alignBottom="@+id/icon"
         android:textColor="@color/gray"
-        android:textSize="14dp"
-        tools:text="어제보다 32명 증가했어요." />
+        android:textSize="14dp" />
 
 </RelativeLayout>

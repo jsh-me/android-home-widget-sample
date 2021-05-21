@@ -10,8 +10,12 @@
     <color name="blue">#004AFF</color>
     <color name="blue_30p">#4D004AFF</color>
 
+    <color name="skyblue2">#0076FF</color>
+
     <color name="skyblue">#EEF4FB</color>
     <color name="skyblue_light">#E5E8F7</color>
+    <color name="skyblue2_10p">#1A0076FF</color>
+
 
     <color name="black_30p">#4D000000</color>
     <color name="black_10p">#1A000000</color>
