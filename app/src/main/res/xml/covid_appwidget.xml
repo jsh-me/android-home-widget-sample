@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minHeight="70dp"
+    android:minResizeWidth="40dp"
+    android:minWidth="110dp"
+    android:updatePeriodMillis="86400000"
+    android:initialLayout="@layout/layout_covid_appwidget"
+    android:previewImage="@drawable/abc_vector_test"
+    android:configure="com.jshme.covidwidget.presentation.ui.add.AddWidgetActivity"
+    android:resizeMode="horizontal|vertical"
+    android:widgetCategory="home_screen">
+</appwidget-provider>

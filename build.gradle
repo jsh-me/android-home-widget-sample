@@ -29,6 +29,8 @@ buildscript {
         runnerVersion = '1.0.1'
         truthVersion = '0.42'
         testExtJunit = '1.1.0'
+        viewPagerVersion = '1.0.0'
+        kotlin_version = '1.4.20'
     }
 
     repositories {

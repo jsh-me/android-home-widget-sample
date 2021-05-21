@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="textView.bold" parent="android:TextAppearance">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/fonts_regular</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="textView.regular" parent="android:TextAppearance">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/fonts_regular</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+</resources>

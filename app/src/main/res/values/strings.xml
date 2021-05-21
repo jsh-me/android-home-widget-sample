@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">covidwidget</string>
+    <string name="description_with_nickname">%s님의\n위치 기준\n확진자 수</string>
+    <string name="person">%s 명</string>
+    <string name="confirmed_cardview_decrease_person_description">전날 대비 %d 명 감소</string>
+    <string name="confirmed_cardview_increase_person_description">전날 대비 %d 명 감소</string>
+    <string name="confirmed_cardview_no_change_person_description">전날과 확진자 수가 같아요.</string>
+
+    <string name="total_confirmed_parson_title">오늘 총 확진자수 %s 명</string>
+
+    <string name="before_count_up_case">주변 사람들을 위해 단체활동은 금지!</string>
+    <string name="before_count_zero_case">아직 안심하기에는 일러요!</string>
+    <string name="before_Count_down_case">우리 지금처럼만 열심히 노력해요</string>
+
 </resources>

@@ -1,7 +1,7 @@
 package com.jshme.covidwidget.di
 
 import com.jshme.covidwidget.domain.usecase.BaseUseCase
-import com.jshme.covidwidget.domain.usecase.GetCovidCount
+import com.jshme.covidwidget.domain.usecase.GetDomesticCovidCount
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,7 +13,7 @@ abstract class UseCaseModule {
 
     @Binds
     abstract fun bindsGetCovidCounts(
-        getCovidCount: GetCovidCount
+        getCovidCount: GetDomesticCovidCount
     ): BaseUseCase
 
 }
